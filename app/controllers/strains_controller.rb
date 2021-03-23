@@ -1,6 +1,6 @@
 class StrainsController < ApplicationController
   before_action :set_strain, only: %i[ show edit update destroy ]
-
+  before_action :set_wines, only: %i[ new show edit]
   # GET /strains or /strains.json
   def index
     @strains = Strain.all
@@ -60,6 +60,10 @@ class StrainsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_strain
       @strain = Strain.find(params[:id])
+    end
+
+    def set_wines 
+      @wines = Wine.all
     end
 
     # Only allow a list of trusted parameters through.
