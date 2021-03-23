@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @strain.name %>
+</p>
+
+<% if @strain.wines.present? %>
+<p><strong> Wines:</strong></p>
+<ul>
+  <% @strain.wines.each do |wine| %>
+  <li><%= wine.name%></li>
+  <li><%= wine.date%></li>
+  <% end %>
+</ul>
+<% end %>
+
+
+<%= link_to 'Edit', edit_strain_path(@strain) %> |
+<%= link_to 'Back', strains_path %>
