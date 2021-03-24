@@ -68,6 +68,6 @@ class StrainsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def strain_params
-      params.require(:strain).permit(:name)
+      params.require(:strain).permit(:name, wine_ids[])
     end
 end
