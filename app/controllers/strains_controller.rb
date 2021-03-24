@@ -4,6 +4,7 @@ class StrainsController < ApplicationController
   # GET /strains or /strains.json
   def index
     @strains = Strain.all
+    @strains = Strain.order(name: :asc)
   end
 
   # GET /strains/1 or /strains/1.json
@@ -68,6 +69,6 @@ class StrainsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def strain_params
-      params.require(:strain).permit(:name, wine_ids[])
+      params.require(:strain).permit(:name, wine_ids: [])
     end
 end
